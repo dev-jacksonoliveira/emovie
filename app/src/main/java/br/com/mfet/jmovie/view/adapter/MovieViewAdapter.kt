@@ -1,36 +1,33 @@
-package br.com.mfet.jmovie.adapter
+package br.com.mfet.jmovie.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import br.com.mfet.jmovie.R
 import br.com.mfet.jmovie.databinding.MovieItemBinding
-import br.com.mfet.jmovie.models.RecyclerData
+import br.com.mfet.jmovie.models.MovieData
 import com.bumptech.glide.Glide
 
-//class MyViewHolder(val binding: MovieItemBinding)
+class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class MovieViewAdapter(
+    val movieClickListener: (Int) -> Unit
+) : RecyclerView.Adapter<MovieViewHolder>() {
 
-    var items = ArrayList<RecyclerData>()
+    var items = ArrayList<MovieData>()
 
-    fun setUpdateData(items: ArrayList<RecyclerData>) {
+    fun setUpdateData(items: ArrayList<MovieData>) {
         this.items = items
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(val binding: MovieItemBinding): RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = MovieItemBinding.inflate(inflater, parent, false)
 
-        return MyViewHolder(binding)
+        return MovieViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val item = items[position]
 //        val itemUpComing = moviesUpComing[position]
 
@@ -41,6 +38,9 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
             Glide.with(it.binding.root)
                 .load("https://image.tmdb.org/t/p/w500${item.poster_path}")
                 .into(it.binding.ivPoster)
+            it.binding.itemBackground.setOnClickListener {
+                movieClickListener(item.id)
+            }
         }
     }
 

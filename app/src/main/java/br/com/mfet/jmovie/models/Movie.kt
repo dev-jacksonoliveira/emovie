@@ -1,8 +1,8 @@
 package br.com.mfet.jmovie.models
 
-data class RecyclerList(val results: ArrayList<RecyclerData>)
+data class Movie(val results: ArrayList<MovieData>)
 
-data class RecyclerData(
+data class MovieData(
     val id: Int,
     val title: String,
     val original_title: String,

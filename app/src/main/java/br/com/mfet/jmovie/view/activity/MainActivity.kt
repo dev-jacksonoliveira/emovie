@@ -1,9 +1,10 @@
-package br.com.mfet.jmovie
+package br.com.mfet.jmovie.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import br.com.mfet.jmovie.MovieListFragment
 import br.com.mfet.jmovie.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupFragment() {
-        val fragment = RecyclerListFragment.newInstance()
+        val fragment = MovieListFragment.newInstance()
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 

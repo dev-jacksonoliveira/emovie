@@ -1,5 +1,6 @@
 package br.com.mfet.jmovie
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,23 +9,24 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.mfet.jmovie.adapter.RecyclerViewAdapter
-import br.com.mfet.jmovie.models.RecyclerList
+import br.com.mfet.jmovie.view.adapter.MovieViewAdapter
+import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.view.activity.MovieDetailsActivity
 import br.com.mfet.jmovie.viewmodel.MainActivityViewModel
+import br.com.mfet.jmovie.viewmodel.MainActivityViewModel.Companion.MOVIE_ID
 
-class RecyclerListFragment : Fragment() {
+class MovieListFragment : Fragment() {
 
-    private lateinit var recyclerAdapter : RecyclerViewAdapter
+    private lateinit var movieAdapter : MovieViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_recycler_list, container, false)
+        val view =  inflater.inflate(R.layout.fragment_movie_list, container, false)
 
         initViewModel(view)
         initViewModel()
@@ -43,20 +45,24 @@ class RecyclerListFragment : Fragment() {
             activity, LinearLayoutManager.HORIZONTAL, false
         )
 
-        recyclerAdapter = RecyclerViewAdapter()
-        recyclerView.adapter = recyclerAdapter
-        recyclerViewLatest.adapter = recyclerAdapter
+        movieAdapter = MovieViewAdapter { id ->
+            val intent = Intent(activity, MovieDetailsActivity::class.java)
+            intent.putExtra(MOVIE_ID, id)
+            startActivity(intent)
+        }
+        recyclerView.adapter = movieAdapter
+        recyclerViewLatest.adapter = movieAdapter
 
     }
 
     private fun initViewModel() {
         val viewModel = ViewModelProvider(this)
             .get(MainActivityViewModel::class.java)
-        viewModel.getRecyclerListObserver().observe(this, Observer<RecyclerList> {
+        viewModel.getRecyclerListObserver().observe(this, Observer<Movie> {
             if(it != null) {
-                recyclerAdapter.setUpdateData(it.results)
+                movieAdapter.setUpdateData(it.results)
             } else {
-                Toast.makeText(activity, "Erro ao trazer dados", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Erro ao carregar dados", Toast.LENGTH_SHORT).show()
             }
         })
         viewModel.makeApiCall()
@@ -64,6 +70,6 @@ class RecyclerListFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            RecyclerListFragment()
+            MovieListFragment()
     }
 }
