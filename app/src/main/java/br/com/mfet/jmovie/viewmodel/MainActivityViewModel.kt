@@ -1,43 +1,57 @@
 package br.com.mfet.jmovie.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mfet.jmovie.models.Movie
-import br.com.mfet.jmovie.repository.ApiConst.API_KEY
 import br.com.mfet.jmovie.repository.MovieInstance
-import br.com.mfet.jmovie.repository.MovieService
+import br.com.mfet.jmovie.repository.PageList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivityViewModel: ViewModel() {
-    lateinit var movieLiveData : MutableLiveData<Movie>
+    private val movieLiveDataPopular : MutableLiveData<List<Movie>?> = MutableLiveData()
+    private val movieLiveDataUpComing : MutableLiveData<List<Movie>?> = MutableLiveData()
 
-//    companion object {
-//        const val API_KEY = "ad802fbc8a9b272ff3f9e783088f346e"
-//    }
 
-    companion object {
-        const val MOVIE_ID = "br.com.mfet.jmovie.view.activity.MainActivityViewModel.MOVIE_ID"
+    fun getPopularObserver(): MutableLiveData<List<Movie>?> {
+        return movieLiveDataPopular
     }
 
-    init {
-        movieLiveData = MutableLiveData()
+    fun getUpComingObserver(): MutableLiveData<List<Movie>?> {
+        return movieLiveDataUpComing
     }
 
-    fun getRecyclerListObserver(): MutableLiveData<Movie> {
-        return movieLiveData
-    }
-
-
-    fun makeApiCall() {
+    fun movieListApiCall() {
         viewModelScope.launch(Dispatchers.IO) {
-            val retroInstance = MovieInstance.getMovieInstance().create(MovieService::class.java)
-            val response = retroInstance.getPopularService(API_KEY)
-            val responseLatest = retroInstance.getUpcomingService(API_KEY)
 
-            movieLiveData.postValue(response)
-            movieLiveData.postValue(responseLatest)
+            val callPopular = MovieInstance.apiMovie.listPopular()
+            callPopular.enqueue(object : Callback<PageList> {
+                override fun onResponse(call: Call<PageList>, response: Response<PageList>) {
+
+                    movieLiveDataPopular.postValue(response.body()?.results)
+                }
+
+                override fun onFailure(call: Call<PageList>, t: Throwable) {
+                    Log.d("TAG", "Erro")
+                }
+            })
+            val callUpcoming = MovieInstance.apiMovie.listUpcoming()
+
+            callUpcoming.enqueue(object : Callback<PageList> {
+                override fun onResponse(call: Call<PageList>, response: Response<PageList>) {
+
+                    movieLiveDataUpComing.postValue(response.body()?.results)
+                }
+
+                override fun onFailure(call: Call<PageList>, t: Throwable) {
+                    Log.d("TAG", "Erro")
+                }
+            })
         }
     }
 }

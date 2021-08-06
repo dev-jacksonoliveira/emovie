@@ -1,11 +1,17 @@
 package br.com.mfet.jmovie.models
 
-data class Movie(val results: ArrayList<MovieData>)
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 
-data class MovieData(
+//@Entity(tableName = "favorites")
+data class Movie(
     val id: Int,
+//    @ColumnInfo(name = "title")
     val title: String,
-    val original_title: String,
+//    @ColumnInfo(name = "title")
+    val release_date: String,
+//    @ColumnInfo(name = "title")
     val overview: String,
+//    @ColumnInfo(name = "title")
     val poster_path: String
     )

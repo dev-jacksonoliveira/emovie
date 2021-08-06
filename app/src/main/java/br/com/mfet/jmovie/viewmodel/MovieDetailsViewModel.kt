@@ -1,32 +1,38 @@
 package br.com.mfet.jmovie.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mfet.jmovie.models.Movie
 import br.com.mfet.jmovie.repository.MovieInstance
-import br.com.mfet.jmovie.repository.MovieService
-import br.com.mfet.jmovie.viewmodel.MainActivityViewModel.Companion.MOVIE_ID
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MovieDetailsViewModel : ViewModel() {
-    var movieLiveData : MutableLiveData<Movie>
-    init {
-        movieLiveData = MutableLiveData()
-    }
+    private val movieLiveData: MutableLiveData<Movie?> = MutableLiveData()
 
-    fun addObserver(): MutableLiveData<Movie> {
+    fun getMovie(): MutableLiveData<Movie?> {
         return movieLiveData
     }
 
-    fun getApiMovieCall() {
+    fun getApiMovieCall(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val movieInstance = MovieInstance.getMovieInstance().create(MovieService::class.java)
-            val response = movieInstance.getMovieById(631843)
 
-            movieLiveData.postValue(response)
+            val call = MovieInstance.apiMovie.getMovieById(id)
+            call.enqueue(object : Callback<Movie> {
+                override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+
+                    movieLiveData.postValue(response.body())
+                }
+
+                override fun onFailure(call: Call<Movie>, t: Throwable) {
+                    Log.d("TAG", "Erro")
+                }
+            })
         }
-
     }
 }

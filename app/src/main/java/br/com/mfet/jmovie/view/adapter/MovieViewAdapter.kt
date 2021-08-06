@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mfet.jmovie.databinding.MovieItemBinding
-import br.com.mfet.jmovie.models.MovieData
+import br.com.mfet.jmovie.models.Movie
 import com.bumptech.glide.Glide
 
 class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -13,10 +13,10 @@ class MovieViewAdapter(
     val movieClickListener: (Int) -> Unit
 ) : RecyclerView.Adapter<MovieViewHolder>() {
 
-    var items = ArrayList<MovieData>()
+    val movieList : MutableList<Movie> = mutableListOf()
 
-    fun setUpdateData(items: ArrayList<MovieData>) {
-        this.items = items
+    fun addItems(items: List<Movie>) {
+        movieList.addAll(items)
         notifyDataSetChanged()
     }
 
@@ -28,7 +28,7 @@ class MovieViewAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val item = items[position]
+        val item = movieList[position]
 //        val itemUpComing = moviesUpComing[position]
 
         holder.let {
@@ -44,6 +44,6 @@ class MovieViewAdapter(
         }
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = movieList.size
 
 }

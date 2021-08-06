@@ -2,13 +2,15 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/transparent"
+    >
     
-    <data>
-        <variable
-            name="detailsViewModel"
-            type="br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel" />
-    </data>
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="detailsViewModel"-->
+<!--            type="br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel" />-->
+<!--    </data>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,58 +22,89 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/cardview_dark_background"
+            android:background="@color/blacktwo"
+
             tools:context=".MainActivity">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_poster"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="350dp"
                 android:scaleType="fitXY"
+                android:focusable="true"
+                android:background="@android:color/transparent"
                 android:src="@drawable/dafivebloods"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:text="@string/title"
                 android:padding="5dp"
                 android:textColor="@color/gray_light"
-                android:textSize="35sp"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_poster"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/original_title"
+                android:id="@+id/release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:textColor="@color/gray_light"
-                android:text="@string/original_title"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:textColor="@color/white"
+                android:text="@string/release_date"
                 android:padding="6dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/info"
+                android:textColor="@color/white"
+                android:padding="6dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/release_date"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 android:text="@string/overview"
-                android:textColor="@color/gray_light"
+                android:textColor="@color/white"
                 android:padding="6dp"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/original_title"/>
+                app:layout_constraintTop_toBottomOf="@id/info"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddFavorites"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="Adicionar à minha lista"
+                android:text="@string/btn_add"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:backgroundTint="@color/yellow"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_overview"
+                app:layout_constraintStart_toStartOf="@id/tv_overview"
+                app:layout_constraintBottom_toBottomOf="parent"
                 />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
