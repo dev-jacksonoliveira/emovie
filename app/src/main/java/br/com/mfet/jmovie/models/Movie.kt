@@ -2,16 +2,20 @@ package br.com.mfet.jmovie.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-//@Entity(tableName = "favorites")
+@Entity(tableName = "favorites")
 data class Movie(
-    val id: Int,
-//    @ColumnInfo(name = "title")
+    @PrimaryKey
+     val id: Int,
+
     val title: String,
-//    @ColumnInfo(name = "title")
+
     val release_date: String,
-//    @ColumnInfo(name = "title")
+
     val overview: String,
-//    @ColumnInfo(name = "title")
-    val poster_path: String
+
+    val poster_path: String,
+
+    val isFavorite: Boolean = false
     )

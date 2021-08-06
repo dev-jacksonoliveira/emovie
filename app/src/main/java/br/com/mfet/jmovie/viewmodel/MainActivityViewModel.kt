@@ -1,21 +1,23 @@
 package br.com.mfet.jmovie.viewmodel
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.repository.DatabaseService
 import br.com.mfet.jmovie.repository.MovieInstance
 import br.com.mfet.jmovie.repository.PageList
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivityViewModel: ViewModel() {
-    private val movieLiveDataPopular : MutableLiveData<List<Movie>?> = MutableLiveData()
-    private val movieLiveDataUpComing : MutableLiveData<List<Movie>?> = MutableLiveData()
+class MainActivityViewModel : ViewModel() {
+    private val movieLiveDataPopular: MutableLiveData<List<Movie>?> = MutableLiveData()
+    private val movieLiveDataUpComing: MutableLiveData<List<Movie>?> = MutableLiveData()
+    private val movieLiveDataFavorite: MutableLiveData<List<Movie>?> = MutableLiveData()
 
 
     fun getPopularObserver(): MutableLiveData<List<Movie>?> {
@@ -24,6 +26,10 @@ class MainActivityViewModel: ViewModel() {
 
     fun getUpComingObserver(): MutableLiveData<List<Movie>?> {
         return movieLiveDataUpComing
+    }
+
+    fun getFavoriteObserver(): MutableLiveData<List<Movie>?> {
+        return movieLiveDataFavorite
     }
 
     fun movieListApiCall() {
@@ -54,4 +60,8 @@ class MainActivityViewModel: ViewModel() {
             })
         }
     }
+
+
+
+
 }

@@ -5,12 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent"
     >
-    
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="detailsViewModel"-->
-<!--            type="br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel" />-->
-<!--    </data>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -103,8 +97,6 @@
                 app:layout_constraintStart_toStartOf="@id/tv_overview"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

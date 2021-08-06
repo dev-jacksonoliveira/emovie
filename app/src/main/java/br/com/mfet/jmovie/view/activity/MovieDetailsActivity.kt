@@ -19,13 +19,13 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setupBinding()
 
-        viewModel = ViewModelProvider(this)
-            .get(MovieDetailsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MovieDetailsViewModel::class.java)
 
         val movieId = intent.getIntExtra(MOVIE_ID, -1)
 
         observe()
         initViewModel(movieId)
+        onClickAddFavorite()
 
     }
 
@@ -62,5 +62,12 @@ class MovieDetailsActivity : AppCompatActivity() {
             tvOverview.text = it.overview
         }
 
+    }
+
+    private fun onClickAddFavorite() {
+        binding.btnAddFavorites.setOnClickListener(){
+            Toast.makeText(this, "ADICIONADO", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 }

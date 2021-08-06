@@ -8,4 +8,5 @@
     <string name="info">Informações do Filme</string>
     <string name="txt_popular">Em destaque hoje</string>
     <string name="txt_up_coming">Brevemente nos cinemas</string>
+    <string name="tv_favorites">Favoritos</string>
 </resources>

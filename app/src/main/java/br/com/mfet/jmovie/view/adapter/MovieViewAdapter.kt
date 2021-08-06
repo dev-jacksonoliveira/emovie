@@ -2,6 +2,7 @@ package br.com.mfet.jmovie.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mfet.jmovie.databinding.MovieItemBinding
 import br.com.mfet.jmovie.models.Movie
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide
 class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 class MovieViewAdapter(
-    val movieClickListener: (Int) -> Unit
+    val movieClickListener: (Int) -> Unit, val btnCheckCallback: (Movie, Boolean) -> Unit
 ) : RecyclerView.Adapter<MovieViewHolder>() {
 
     val movieList : MutableList<Movie> = mutableListOf()
@@ -40,6 +41,9 @@ class MovieViewAdapter(
                 .into(it.binding.ivPoster)
             it.binding.itemBackground.setOnClickListener {
                 movieClickListener(item.id)
+            }
+            it.binding.iconFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
+                btnCheckCallback(item, isChecked)
             }
         }
     }

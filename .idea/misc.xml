@@ -12,12 +12,19 @@
         <entry key="..\:/Users/Jackson/AndroidStudioProjects/Jmovie/app/src/main/res/layout/activity_movie_details.xml" value="0.25" />
         <entry key="..\:/Users/Jackson/AndroidStudioProjects/Jmovie/app/src/main/res/layout/fragment_movie_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Jackson/AndroidStudioProjects/Jmovie/app/src/main/res/layout/movie_item.xml" value="0.4146341463414634" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/custom_checkbox.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_baseline_bookmark_border.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.21296296296296297" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_baseline_bookmark_filled.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_baseline_bookmark_filledd.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21296296296296297" />
         <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/activity_movie_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/activity_movie_favorite.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/fragment_recycler_list.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/movie_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jackson.oliveira/AndroidStudioProjects/jmovie/app/src/main/res/layout/movie_item.xml" value="0.5" />
       </map>
     </option>
   </component>

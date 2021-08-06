@@ -41,31 +41,6 @@
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
-        <!--        <LinearLayout-->
-        <!--            android:id="@+id/linearLayout3"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:padding="16dp"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="Tv Shows"-->
-        <!--                android:textColor="@color/white"-->
-        <!--                android:textSize="25sp"-->
-        <!--                android:textStyle="bold" />-->
-
-        <!--            <androidx.recyclerview.widget.RecyclerView-->
-        <!--                android:id="@+id/recyclerview"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="match_parent" />-->
-
-        <!--        </LinearLayout>-->
-
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
@@ -90,6 +65,20 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_favoritos"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Favoritos"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/yellow"
+                app:layout_constraintStart_toStartOf="@id/rv_movieupcoming"
+                app:layout_constraintBottom_toBottomOf="parent"
                 />
         </LinearLayout>
 
