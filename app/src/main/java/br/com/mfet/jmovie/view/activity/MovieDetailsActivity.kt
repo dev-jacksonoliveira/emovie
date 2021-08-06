@@ -1,12 +1,15 @@
 package br.com.mfet.jmovie.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.mfet.jmovie.databinding.ActivityMovieDetailsBinding
 import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.repository.DatabaseService
 import br.com.mfet.jmovie.view.activity.MainActivity.Companion.MOVIE_ID
+import br.com.mfet.jmovie.view.adapter.MovieViewAdapter
 import br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel
 import com.bumptech.glide.Glide
 
@@ -14,7 +17,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMovieDetailsBinding
 
     private lateinit var viewModel: MovieDetailsViewModel
-
+    private lateinit var movieDetailsAdapter: MovieViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupBinding()
@@ -25,7 +28,9 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         observe()
         initViewModel(movieId)
-        onClickAddFavorite()
+        binding.btnAddFavorites.setOnClickListener {
+            onClickAddFavorite()
+        }
 
     }
 
@@ -65,9 +70,14 @@ class MovieDetailsActivity : AppCompatActivity() {
     }
 
     private fun onClickAddFavorite() {
-        binding.btnAddFavorites.setOnClickListener(){
-            Toast.makeText(this, "ADICIONADO", Toast.LENGTH_SHORT)
-                .show()
-        }
+
+        movieDetailsAdapter = MovieViewAdapter({
+        }, { movie, isChecked ->
+            if (isChecked) DatabaseService.setMovieFavorite(this, movie)
+            else DatabaseService.deleteMovieFavorite(this, movie)
+        })
+
+        val intent = Intent(this, MovieFavoriteActivity::class.java)
+        startActivity(intent)
     }
 }
