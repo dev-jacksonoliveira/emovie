@@ -3,7 +3,10 @@ package br.com.mfet.jmovie.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mfet.jmovie.databinding.ActivityMovieFavoriteBinding
+import br.com.mfet.jmovie.databinding.MovieItemBinding
 import br.com.mfet.jmovie.repository.DatabaseService
 import br.com.mfet.jmovie.view.adapter.MovieViewAdapter
 
@@ -23,19 +26,26 @@ class MovieFavoriteActivity : AppCompatActivity() {
             val intent = Intent(this, MovieDetailsActivity::class.java)
             intent.putExtra(MainActivity.MOVIE_ID, it)
             startActivity(intent)
-        }, { movie, isFavorite ->
-            if (isFavorite) DatabaseService.setMovieFavorite(this, movie)
+        }, { movie, isChecked ->
+            if (isChecked) DatabaseService.setMovieFavorite(this, movie)
+//            if (isChecked) {
+//                DatabaseService.deleteMovieFavorite(this, movie)
+//                !isChecked
+//                Toast.makeText(this, "Filme deletado com sucesso!",
+//                    Toast.LENGTH_LONG).show()
+//            }
             else DatabaseService.deleteMovieFavorite(this, movie)
 
         })
         binding.rvMoviefavorite.adapter = movieAdapterFavorite
+        binding.rvMoviefavorite.layoutManager =  GridLayoutManager(this,2)
+
     }
 
     fun movieListFavDbCall() {
         DatabaseService.getMovieFavorite(this) { list ->
+
             movieAdapterFavorite.addItems(list)
         }
-
     }
-
 }

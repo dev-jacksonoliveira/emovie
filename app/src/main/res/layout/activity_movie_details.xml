@@ -27,7 +27,7 @@
                 android:scaleType="fitXY"
                 android:focusable="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/dafivebloods"
+                android:src="@drawable/ic_launcher_foreground"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>

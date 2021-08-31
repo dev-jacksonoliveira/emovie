@@ -29,9 +29,20 @@ class MovieDetailsActivity : AppCompatActivity() {
         observe()
         initViewModel(movieId)
         binding.btnAddFavorites.setOnClickListener {
-            onClickAddFavorite()
-        }
+            val intent = Intent(this, MovieFavoriteActivity::class.java)
+            startActivity(intent)
+            movieDetailsAdapter = MovieViewAdapter({
 
+            }, { movie, isFavorite ->
+                if (isFavorite) {
+                    DatabaseService.setMovieFavorite(this, movie)
+                    Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
+                        Toast.LENGTH_LONG).show()
+                }
+
+            })
+
+        }
     }
 
     fun setupBinding() {
@@ -72,12 +83,24 @@ class MovieDetailsActivity : AppCompatActivity() {
     private fun onClickAddFavorite() {
 
         movieDetailsAdapter = MovieViewAdapter({
-        }, { movie, isChecked ->
-            if (isChecked) DatabaseService.setMovieFavorite(this, movie)
-            else DatabaseService.deleteMovieFavorite(this, movie)
+            val intent = Intent(this, MovieDetailsActivity::class.java)
+            intent.putExtra(MOVIE_ID, it)
+            startActivity(intent)
+        }, { movie, isFavorite ->
+            if (isFavorite) {
+                DatabaseService.setMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                DatabaseService.deleteMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme removido da sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
+
         })
 
-        val intent = Intent(this, MovieFavoriteActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this, MovieFavoriteActivity::class.java)
+//        startActivity(intent)
     }
 }

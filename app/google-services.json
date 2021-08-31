@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "123757933643",
+    "project_id": "jmovie-a3276",
+    "storage_bucket": "jmovie-a3276.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123757933643:android:ea5102e665e2fbbbfdc9ce",
+        "android_client_info": {
+          "package_name": "br.com.mfet.jmovie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123757933643-kgo2lpfc783nk0tbqs5u19dne8jjgg22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCXRkx2KnXErgK6yPjnwWOTefxG6IyA1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123757933643-kgo2lpfc783nk0tbqs5u19dne8jjgg22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

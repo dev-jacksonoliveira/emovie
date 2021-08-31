@@ -3,6 +3,7 @@ package br.com.mfet.jmovie.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.mfet.jmovie.databinding.ActivityMainBinding
@@ -37,8 +38,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(MOVIE_ID, it)
             startActivity(intent)
         }, { movie, isFavorite ->
-            if (isFavorite) DatabaseService.setMovieFavorite(this, movie)
-            else DatabaseService.deleteMovieFavorite(this, movie)
+            if (isFavorite) {
+                DatabaseService.setMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                DatabaseService.deleteMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme removido da sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
 
         })
         binding.rvMovielistpopular.adapter = movieAdapterPopular
@@ -48,8 +57,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(MOVIE_ID, it)
             startActivity(intent)
         }, { movie, isChecked ->
-            if (isChecked) DatabaseService.setMovieFavorite(this, movie)
-            else DatabaseService.deleteMovieFavorite(this, movie)
+            if (isChecked) {
+                DatabaseService.setMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
+            else {
+                DatabaseService.deleteMovieFavorite(this, movie)
+                Toast.makeText(this, "Filme removido da sua lista de favoritos!",
+                    Toast.LENGTH_LONG).show()
+            }
         })
         binding.rvMovieupcoming.adapter = movieAdapterUpComing
 
@@ -71,8 +88,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(MOVIE_ID, it)
             startActivity(intent)
         }, { movie, isChecked ->
-            if (isChecked) DatabaseService.setMovieFavorite(this, movie)
-            else DatabaseService.deleteMovieFavorite(this, movie)
+            TODO()
         })
 
         intentFavorites()
@@ -85,7 +101,5 @@ class MainActivity : AppCompatActivity() {
 
            startActivity(intent)
        }
-
     }
-
 }
