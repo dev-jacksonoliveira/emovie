@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.mfet.jmovie.databinding.ActivityMovieDetailsBinding
-import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.model.Movie
 import br.com.mfet.jmovie.repository.DatabaseService
 import br.com.mfet.jmovie.view.activity.MainActivity.Companion.MOVIE_ID
 import br.com.mfet.jmovie.view.adapter.MovieViewAdapter

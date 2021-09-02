@@ -1,6 +1,6 @@
 package br.com.mfet.jmovie.repository
 
-import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.model.Movie
 import br.com.mfet.jmovie.repository.ApiConst.API_KEY
 import br.com.mfet.jmovie.repository.ApiConst.API_KEY_QUERY
 import br.com.mfet.jmovie.repository.ApiConst.DEFAULT_LANGUAGE

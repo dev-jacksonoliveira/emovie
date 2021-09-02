@@ -1,10 +1,6 @@
 package br.com.mfet.jmovie.repository
 
-import android.content.Context
-import androidx.room.Room
 //import br.com.mfet.jmovie.data.db.AppDatabase
-import br.com.mfet.jmovie.models.Movie
-import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

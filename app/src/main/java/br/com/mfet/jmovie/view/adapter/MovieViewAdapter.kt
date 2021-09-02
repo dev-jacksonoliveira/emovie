@@ -2,10 +2,9 @@ package br.com.mfet.jmovie.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mfet.jmovie.databinding.MovieItemBinding
-import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.model.Movie
 import com.bumptech.glide.Glide
 
 class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)

@@ -9,4 +9,11 @@
     <string name="txt_popular">Em destaque hoje</string>
     <string name="txt_up_coming">Brevemente nos cinemas</string>
     <string name="tv_favorites">Favoritos</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar senha</string>
+    <string name="or">Ou</string>
+    <string name="sign_in">Entrar</string>
+    <string name="sign_out">Sair</string>
 </resources>

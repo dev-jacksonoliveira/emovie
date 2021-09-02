@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Jmovie">
+
         <activity
             android:name=".view.activity.MovieFavoriteActivity"
             android:exported="true" />
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.MovieDetailsActivity" />
+        <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.SignInActivity" />
     </application>
 
 </manifest>

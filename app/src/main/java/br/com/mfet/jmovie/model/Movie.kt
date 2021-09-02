@@ -1,6 +1,5 @@
-package br.com.mfet.jmovie.models
+package br.com.mfet.jmovie.model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

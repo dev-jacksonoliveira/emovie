@@ -3,7 +3,7 @@ package br.com.mfet.jmovie.repository
 import android.content.Context
 import androidx.room.Room
 import br.com.mfet.jmovie.data.db.AppDatabase
-import br.com.mfet.jmovie.models.Movie
+import br.com.mfet.jmovie.model.Movie
 import kotlinx.coroutines.*
 
 object DatabaseService {

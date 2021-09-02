@@ -78,6 +78,21 @@
                 app:layout_constraintStart_toStartOf="@id/rv_movieupcoming"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_out"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
 
 
