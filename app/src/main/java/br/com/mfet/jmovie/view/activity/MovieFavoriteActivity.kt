@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mfet.jmovie.databinding.ActivityMovieFavoriteBinding
 import br.com.mfet.jmovie.databinding.MovieItemBinding
@@ -28,6 +29,7 @@ class MovieFavoriteActivity : AppCompatActivity() {
             startActivity(intent)
         }, { movie, isChecked ->
             if (isChecked) DatabaseService.setMovieFavorite(this, movie)
+
 //            if (isChecked) {
 //                DatabaseService.deleteMovieFavorite(this, movie)
 //                !isChecked
@@ -44,8 +46,8 @@ class MovieFavoriteActivity : AppCompatActivity() {
 
     fun movieListFavDbCall() {
         DatabaseService.getMovieFavorite(this) { list ->
-
             movieAdapterFavorite.addItems(list)
+
         }
     }
 }

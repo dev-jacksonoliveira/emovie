@@ -65,36 +65,41 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_favoritos"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Favoritos"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/yellow"
-                app:layout_constraintStart_toStartOf="@id/rv_movieupcoming"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnSignOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sign_out"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_gravity="right"
-                android:backgroundTint="@color/yellow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_favoritos"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Favoritos"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
 
+            android:textStyle="bold"
+            android:backgroundTint="@color/yellow"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_out"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:backgroundTint="@color/yellow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

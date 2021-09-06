@@ -4,12 +4,12 @@
     <string name="release_date">Data de Lançamento</string>
     <string name="title">Title</string>
     <string name="add_movie">add_movielist</string>
-    <string name="btn_add">+ Adicionar à minha lista</string>
+    <string name="btn_add">Ir para Favoritos</string>
     <string name="info">Informações do Filme</string>
     <string name="txt_popular">Em destaque hoje</string>
     <string name="txt_up_coming">Brevemente nos cinemas</string>
     <string name="tv_favorites">Favoritos</string>
-    <string name="create_account">Criar Conta</string>
+    <string name="create_account">Cadastrar</string>
     <string name="email">Email</string>
     <string name="password">Senha</string>
     <string name="confirm_password">Confirmar senha</string>

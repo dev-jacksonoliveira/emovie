@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import br.com.mfet.jmovie.R
 import br.com.mfet.jmovie.databinding.ActivityMainBinding
 import br.com.mfet.jmovie.databinding.ActivitySignInBinding
 import br.com.mfet.jmovie.extensions.Extensions.toast
@@ -17,6 +18,8 @@ class SignInActivity : AppCompatActivity() {
     lateinit var signInInputsArray: Array<EditText>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(1000)
+        setTheme(R.style.Theme_Jmovie)
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
@@ -32,7 +35,6 @@ class SignInActivity : AppCompatActivity() {
             signInUser()
         }
     }
-
     private fun notEmpty(): Boolean = signInEmail.isNotEmpty() && signInPassword.isNotEmpty()
 
     private fun signInUser() {
@@ -44,16 +46,16 @@ class SignInActivity : AppCompatActivity() {
                 .addOnCompleteListener { signIn ->
                     if (signIn.isSuccessful) {
                         startActivity(Intent(this, MainActivity::class.java))
-                        toast("signed in successfully")
+                        toast("Conectado com sucesso")
                         finish()
                     } else {
-                        toast("sign in failed")
+                        toast("A conexão falhou")
                     }
                 }
         } else {
             signInInputsArray.forEach { input ->
                 if (input.text.toString().trim().isEmpty()) {
-                    input.error = "${input.hint} is required"
+                    input.error = "${input.hint} é obrigatório"
                 }
             }
         }

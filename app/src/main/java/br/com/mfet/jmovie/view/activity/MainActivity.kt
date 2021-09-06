@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import br.com.mfet.jmovie.R
 import br.com.mfet.jmovie.databinding.ActivityMainBinding
 import br.com.mfet.jmovie.extensions.Extensions.toast
 import br.com.mfet.jmovie.repository.DatabaseService
@@ -97,8 +98,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSignOut.setOnClickListener {
             firebaseAuth.signOut()
-            startActivity(Intent(this, CreateAccountActivity::class.java))
-            toast("Desconectado")
+            startActivity(Intent(this, SignInActivity::class.java))
+            toast("Conexão encerrada com sucesso")
             finish()
         }
 
@@ -107,7 +108,6 @@ class MainActivity : AppCompatActivity() {
     fun intentFavorites() {
        binding.btnFavoritos.setOnClickListener {
            val intent = Intent(this, MovieFavoriteActivity::class.java)
-
            startActivity(intent)
        }
     }
