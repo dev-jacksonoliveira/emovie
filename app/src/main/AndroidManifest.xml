@@ -16,7 +16,8 @@
         <activity
             android:name=".view.activity.MovieFavoriteActivity"
             android:exported="true" />
-        <activity android:name=".view.activity.SignInActivity">
+        <activity android:name=".view.activity.SignInActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
