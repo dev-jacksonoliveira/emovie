@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.data.db.dao
+package br.com.mfet.jmovie.data.dao
 
 import androidx.room.*
 import br.com.mfet.jmovie.model.Movie

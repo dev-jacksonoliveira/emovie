@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.view.activity
+package br.com.mfet.jmovie.presentation
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,12 +6,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.mfet.jmovie.R
 import br.com.mfet.jmovie.databinding.ActivityMainBinding
-import br.com.mfet.jmovie.extensions.Extensions.toast
-import br.com.mfet.jmovie.repository.DatabaseService
+import br.com.mfet.jmovie.utils.extensions.Extensions.toast
+import br.com.mfet.jmovie.data.repository.DatabaseService
 import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseAuth
-import br.com.mfet.jmovie.view.adapter.MovieViewAdapter
+import br.com.mfet.jmovie.presentation.adapter.MovieViewAdapter
 import br.com.mfet.jmovie.viewmodel.MainActivityViewModel
 
 

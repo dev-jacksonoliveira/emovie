@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.view.adapter
+package br.com.mfet.jmovie.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -36,7 +36,7 @@ class MovieViewAdapter(
             it.binding.title = item.title
 
             Glide.with(it.binding.root)
-                .load("https://image.tmdb.org/t/p/w500${item.poster_path}")
+                .load("https://image.tmdb.org/t/p/w500${item.posterPath}")
                 .into(it.binding.ivPoster)
             it.binding.itemBackground.setOnClickListener {
                 movieClickListener(item.id)

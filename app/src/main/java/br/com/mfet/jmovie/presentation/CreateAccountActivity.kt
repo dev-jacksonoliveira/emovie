@@ -1,16 +1,19 @@
-package br.com.mfet.jmovie.view.activity
+package br.com.mfet.jmovie.presentation
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import br.com.mfet.jmovie.R
 import br.com.mfet.jmovie.databinding.ActivityCreateAccountBinding
-import br.com.mfet.jmovie.extensions.Extensions.toast
+import br.com.mfet.jmovie.utils.extensions.Extensions.toast
 import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseAuth
 import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseUser
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_create_account.*
+import kotlinx.android.synthetic.main.activity_create_account.btnCreateAccount
+import kotlinx.android.synthetic.main.activity_create_account.btnSignIn2
+import kotlinx.android.synthetic.main.activity_create_account.etConfirmPassword
+import kotlinx.android.synthetic.main.activity_create_account.etEmail
+import kotlinx.android.synthetic.main.activity_create_account.etPassword
 
 class CreateAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateAccountBinding

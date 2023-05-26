@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.view.activity
+package br.com.mfet.jmovie.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.mfet.jmovie.databinding.ActivityMovieDetailsBinding
 import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.repository.DatabaseService
-import br.com.mfet.jmovie.view.activity.MainActivity.Companion.MOVIE_ID
-import br.com.mfet.jmovie.view.adapter.MovieViewAdapter
+import br.com.mfet.jmovie.data.repository.DatabaseService
+import br.com.mfet.jmovie.presentation.MainActivity.Companion.MOVIE_ID
+import br.com.mfet.jmovie.presentation.adapter.MovieViewAdapter
 import br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel
 import com.bumptech.glide.Glide
 
@@ -70,11 +70,11 @@ class MovieDetailsActivity : AppCompatActivity() {
     private fun setDetails(it: Movie) {
         binding.apply {
             Glide.with(root)
-                .load("https://image.tmdb.org/t/p/w500${it.poster_path}")
+                .load("https://image.tmdb.org/t/p/w500${it.posterPath}")
                 .into(ivPoster)
 
             title.text = it.title
-            releaseDate.text = it.release_date
+            releaseDate.text = it.releaseDate
             tvOverview.text = it.overview
         }
 

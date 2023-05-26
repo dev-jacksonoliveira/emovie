@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.repository.MovieInstance
+import br.com.mfet.jmovie.data.repository.MovieInstance
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call

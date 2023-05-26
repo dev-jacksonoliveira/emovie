@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.repository.MovieInstance
-import br.com.mfet.jmovie.repository.PageList
+import br.com.mfet.jmovie.data.repository.MovieInstance
+import br.com.mfet.jmovie.data.repository.PageList
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback

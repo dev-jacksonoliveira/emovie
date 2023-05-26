@@ -1,12 +1,12 @@
-package br.com.mfet.jmovie.repository
+package br.com.mfet.jmovie.data.repository
 
 import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.repository.ApiConst.API_KEY
-import br.com.mfet.jmovie.repository.ApiConst.API_KEY_QUERY
-import br.com.mfet.jmovie.repository.ApiConst.DEFAULT_LANGUAGE
-import br.com.mfet.jmovie.repository.ApiConst.LANGUAGE_QUERY
-import br.com.mfet.jmovie.repository.ApiConst.PAGE_QUERY
-import br.com.mfet.jmovie.repository.ApiConst.PATH_MOVIE_ID
+import br.com.mfet.jmovie.data.api.ApiConst.API_KEY
+import br.com.mfet.jmovie.data.api.ApiConst.API_KEY_QUERY
+import br.com.mfet.jmovie.data.api.ApiConst.DEFAULT_LANGUAGE
+import br.com.mfet.jmovie.data.api.ApiConst.LANGUAGE_QUERY
+import br.com.mfet.jmovie.data.api.ApiConst.PAGE_QUERY
+import br.com.mfet.jmovie.data.api.ApiConst.PATH_MOVIE_ID
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

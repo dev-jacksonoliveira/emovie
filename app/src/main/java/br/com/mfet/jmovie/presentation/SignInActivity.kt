@@ -1,13 +1,12 @@
-package br.com.mfet.jmovie.view.activity
+package br.com.mfet.jmovie.presentation
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import br.com.mfet.jmovie.R
-import br.com.mfet.jmovie.databinding.ActivityMainBinding
 import br.com.mfet.jmovie.databinding.ActivitySignInBinding
-import br.com.mfet.jmovie.extensions.Extensions.toast
+import br.com.mfet.jmovie.utils.extensions.Extensions.toast
 import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_in.*
 

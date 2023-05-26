@@ -1,6 +1,6 @@
-package br.com.mfet.jmovie.repository
+package br.com.mfet.jmovie.data.repository
 
-//import br.com.mfet.jmovie.data.db.AppDatabase
+//import br.com.mfet.jmovie.data.AppDatabase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

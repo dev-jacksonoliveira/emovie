@@ -14,9 +14,9 @@
         android:theme="@style/Theme.Jmovie">
 
         <activity
-            android:name=".view.activity.MovieFavoriteActivity"
+            android:name=".presentation.MovieFavoriteActivity"
             android:exported="true" />
-        <activity android:name=".view.activity.SignInActivity"
+        <activity android:name=".presentation.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.MovieDetailsActivity" />
-        <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.CreateAccountActivity" />
+        <activity android:name=".presentation.MovieDetailsActivity" />
+        <activity android:name=".presentation.MainActivity" />
+        <activity android:name=".presentation.CreateAccountActivity" />
     </application>
 
 </manifest>

@@ -1,8 +1,8 @@
-package br.com.mfet.jmovie.data.db
+package br.com.mfet.jmovie.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import br.com.mfet.jmovie.data.db.dao.MovieDao
+import br.com.mfet.jmovie.data.dao.MovieDao
 import br.com.mfet.jmovie.model.Movie
 
 @Database(entities = [Movie::class], version = 1)

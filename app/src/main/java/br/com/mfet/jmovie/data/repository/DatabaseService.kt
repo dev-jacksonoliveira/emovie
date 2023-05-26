@@ -1,8 +1,8 @@
-package br.com.mfet.jmovie.repository
+package br.com.mfet.jmovie.data.repository
 
 import android.content.Context
 import androidx.room.Room
-import br.com.mfet.jmovie.data.db.AppDatabase
+import br.com.mfet.jmovie.data.AppDatabase
 import br.com.mfet.jmovie.model.Movie
 import kotlinx.coroutines.*
 

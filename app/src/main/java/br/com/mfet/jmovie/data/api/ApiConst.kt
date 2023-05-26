@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.repository
+package br.com.mfet.jmovie.data.api
 
 object ApiConst {
     const val API_KEY = "ad802fbc8a9b272ff3f9e783088f346e"
