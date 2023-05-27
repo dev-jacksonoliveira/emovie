@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.data.repository.MovieInstance
+import br.com.mfet.jmovie.data.model.Movie
+import br.com.mfet.jmovie.data.api.retrofit.ApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -22,7 +22,7 @@ class MovieDetailsViewModel : ViewModel() {
     fun getApiMovieCall(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
 
-            val call = MovieInstance.apiMovie.getMovieById(id)
+            val call = ApiClient.apiService.getMovieById(id)
             call.enqueue(object : Callback<Movie> {
                 override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
 

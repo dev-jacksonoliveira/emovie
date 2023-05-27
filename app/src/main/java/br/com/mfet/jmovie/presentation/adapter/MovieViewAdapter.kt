@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.mfet.jmovie.databinding.MovieItemBinding
-import br.com.mfet.jmovie.model.Movie
+import br.com.mfet.jmovie.data.model.Movie
 import com.bumptech.glide.Glide
 
 class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)

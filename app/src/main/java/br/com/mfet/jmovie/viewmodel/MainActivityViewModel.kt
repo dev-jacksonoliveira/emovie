@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.mfet.jmovie.model.Movie
-import br.com.mfet.jmovie.data.repository.MovieInstance
-import br.com.mfet.jmovie.data.repository.PageList
+import br.com.mfet.jmovie.data.model.Movie
+import br.com.mfet.jmovie.data.api.retrofit.ApiClient
+import br.com.mfet.jmovie.data.PageList
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,7 +32,7 @@ class MainActivityViewModel : ViewModel() {
     fun movieListApiCall() {
         viewModelScope.launch(Dispatchers.IO) {
 
-            val callPopular = MovieInstance.apiMovie.listPopular()
+            val callPopular = ApiClient.apiService.listPopular()
             callPopular.enqueue(object : Callback<PageList> {
                 override fun onResponse(call: Call<PageList>, response: Response<PageList>) {
 
@@ -43,7 +43,7 @@ class MainActivityViewModel : ViewModel() {
                     Log.d("TAG", "Erro")
                 }
             })
-            val callUpcoming = MovieInstance.apiMovie.listUpcoming()
+            val callUpcoming = ApiClient.apiService.listUpcoming()
 
             callUpcoming.enqueue(object : Callback<PageList> {
                 override fun onResponse(call: Call<PageList>, response: Response<PageList>) {

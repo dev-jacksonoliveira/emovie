@@ -1,6 +1,7 @@
 package br.com.mfet.jmovie.data.repository
 
-import br.com.mfet.jmovie.model.Movie
+import br.com.mfet.jmovie.data.PageList
+import br.com.mfet.jmovie.data.model.Movie
 import br.com.mfet.jmovie.data.api.ApiConst.API_KEY
 import br.com.mfet.jmovie.data.api.ApiConst.API_KEY_QUERY
 import br.com.mfet.jmovie.data.api.ApiConst.DEFAULT_LANGUAGE
@@ -12,7 +13,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface MovieService {
+interface ApiService {
 
     @GET("popular")
     fun listPopular(
@@ -23,7 +24,6 @@ interface MovieService {
 
     @GET("upcoming")
     fun listUpcoming(
-
         @Query(API_KEY_QUERY) apiKey: String = API_KEY,
         @Query(LANGUAGE_QUERY) idiom: String = DEFAULT_LANGUAGE,
         @Query(PAGE_QUERY) page: Int = 1
@@ -38,4 +38,3 @@ interface MovieService {
 
 }
 
-class PageList(val results: List<Movie>)

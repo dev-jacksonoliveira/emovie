@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.model
+package br.com.mfet.jmovie.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

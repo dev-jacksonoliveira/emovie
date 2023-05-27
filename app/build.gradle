@@ -72,6 +72,15 @@ dependencies {
     // firebase-auth
     implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
 
+    // OkHttp
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+
 
     // Room
     def room_version = "2.4.0-alpha05"
