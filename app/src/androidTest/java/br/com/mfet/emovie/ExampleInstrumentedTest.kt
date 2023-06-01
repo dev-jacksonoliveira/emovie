@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie
+package br.com.mfet.emovie
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("br.com.mfet.jmovie", appContext.packageName)
+        assertEquals("br.com.mfet.emovie", appContext.packageName)
     }
 }

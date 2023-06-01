@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "123757933643",
-    "project_id": "jmovie-a3276",
-    "storage_bucket": "jmovie-a3276.appspot.com"
+    "project_id": "emovie-a3276",
+    "storage_bucket": "emovie-a3276.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:123757933643:android:ea5102e665e2fbbbfdc9ce",
         "android_client_info": {
-          "package_name": "br.com.mfet.jmovie"
+          "package_name": "br.com.mfet.emovie"
         }
       },
       "oauth_client": [

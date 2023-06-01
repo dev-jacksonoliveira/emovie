@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie
+package br.com.mfet.emovie
 
 import org.junit.Test
 

@@ -1,13 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
 }
 
 android {
-    compileSdk 33
+    compileSdk 31
 
     buildFeatures {
         dataBinding true
@@ -15,9 +15,9 @@ android {
     }
 
     defaultConfig {
-        applicationId "br.com.mfet.jmovie"
+        applicationId "br.com.mfet.emovie"
         minSdk 21
-        targetSdk 33
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
