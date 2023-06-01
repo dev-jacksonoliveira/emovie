@@ -1,41 +1,41 @@
-package br.com.mfet.jmovie.presentation
+package br.com.mfet.emovie.presentation
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import br.com.mfet.jmovie.databinding.ActivityCreateAccountBinding
-import br.com.mfet.jmovie.utils.extensions.Extensions.toast
-import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseAuth
-import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseUser
+import br.com.mfet.emovie.databinding.ActivityCreateAccountBinding
+import br.com.mfet.emovie.utils.extensions.Extensions.toast
+import br.com.mfet.emovie.utils.FirebaseUtils.firebaseAuth
+import br.com.mfet.emovie.utils.FirebaseUtils.firebaseUser
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_create_account.btnCreateAccount
-import kotlinx.android.synthetic.main.activity_create_account.btnSignIn2
-import kotlinx.android.synthetic.main.activity_create_account.etConfirmPassword
-import kotlinx.android.synthetic.main.activity_create_account.etEmail
-import kotlinx.android.synthetic.main.activity_create_account.etPassword
 
 class CreateAccountActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCreateAccountBinding
-    lateinit var userEmail: String
-    lateinit var userPassword: String
-    lateinit var createAccountInputsArray: Array<EditText>
+    private val binding: ActivityCreateAccountBinding by lazy {
+        ActivityCreateAccountBinding.inflate(layoutInflater)
+    }
+    private var createAccountInputsArray: Array<EditText>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCreateAccountBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
-        createAccountInputsArray = arrayOf(etEmail, etPassword, etConfirmPassword)
-        btnCreateAccount.setOnClickListener {
-            signIn()
-        }
+        setupListeners()
 
+        createAccountInputsArray =
+            arrayOf(binding.etEmail, binding.etPassword, binding.etConfirmPassword)
+    }
+
+    private fun setupListeners() = with(binding) {
         btnSignIn2.setOnClickListener {
-            startActivity(Intent(this, SignInActivity::class.java))
+            startActivity(SignInActivity.getLaunchIntent(this@CreateAccountActivity))
             toast("Por favor entre em sua conta")
             finish()
+        }
+
+        btnCreateAccount.setOnClickListener {
+            signIn()
         }
     }
     // verifique se há um usuário conectado
@@ -49,18 +49,20 @@ class CreateAccountActivity : AppCompatActivity() {
         }
     }
 
-    private fun notEmpty(): Boolean = etEmail.text.toString().trim().isNotEmpty() &&
-            etPassword.text.toString().trim().isNotEmpty() &&
-            etConfirmPassword.text.toString().trim().isNotEmpty()
+    private fun notEmpty(): Boolean = with(binding) {
+        etEmail.text.toString().trim().isNotEmpty() &&
+                etPassword.text.toString().trim().isNotEmpty() &&
+                etConfirmPassword.text.toString().trim().isNotEmpty()
+    }
 
-    private fun identicalPassword(): Boolean {
+    private fun identicalPassword(): Boolean = with(binding) {
         var identical = false
         if (notEmpty() &&
             etPassword.text.toString().trim() == etConfirmPassword.text.toString().trim()
         ) {
             identical = true
         } else if (!notEmpty()) {
-            createAccountInputsArray.forEach { input ->
+            createAccountInputsArray?.forEach { input ->
                 if (input.text.toString().trim().isEmpty()) {
                     input.error = "${input.hint} é obrigatório"
                 }
@@ -71,13 +73,13 @@ class CreateAccountActivity : AppCompatActivity() {
         return identical
     }
 
-    private fun signIn() {
+    private fun signIn() = with(binding) {
         if (identicalPassword()) {
             /* identicalPassword() retorna verdadeiro apenas quando as entradas não estão vazias
              e as senhas são idênticas
              */
-            userEmail = etEmail.text.toString().trim()
-            userPassword = etPassword.text.toString().trim()
+            val userEmail = etEmail.text.toString().trim()
+            val userPassword = etPassword.text.toString().trim()
 
             /*criar um usuário*/
             firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
@@ -85,7 +87,7 @@ class CreateAccountActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         toast("Conta criada com sucesso!")
                         sendEmailVerification()
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(MainActivity.getLaunchIntent(this@CreateAccountActivity))
                         finish()
                     } else {
                         toast("Falha ao autenticar!")
@@ -101,9 +103,13 @@ class CreateAccountActivity : AppCompatActivity() {
         firebaseUser?.let {
             it.sendEmailVerification().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    toast("Email enviado para $userEmail")
+                    toast("Email enviado para ${binding.etEmail}")
                 }
             }
         }
+    }
+
+    companion object {
+        fun getLaunchIntent(context: Context) = Intent(context, CreateAccountActivity::class.java)
     }
 }

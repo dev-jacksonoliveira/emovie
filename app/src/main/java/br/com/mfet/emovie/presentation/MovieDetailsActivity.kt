@@ -1,16 +1,16 @@
-package br.com.mfet.jmovie.presentation
+package br.com.mfet.emovie.presentation
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import br.com.mfet.jmovie.databinding.ActivityMovieDetailsBinding
-import br.com.mfet.jmovie.data.model.Movie
-import br.com.mfet.jmovie.data.repository.DatabaseService
-import br.com.mfet.jmovie.presentation.MainActivity.Companion.MOVIE_ID
-import br.com.mfet.jmovie.presentation.adapter.MovieViewAdapter
-import br.com.mfet.jmovie.viewmodel.MovieDetailsViewModel
+import br.com.mfet.emovie.databinding.ActivityMovieDetailsBinding
+import br.com.mfet.emovie.data.model.Movie
+import br.com.mfet.emovie.data.database.DatabaseService
+import br.com.mfet.emovie.presentation.MainActivity.Companion.MOVIE_ID
+import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
+import br.com.mfet.emovie.viewmodel.MovieDetailsViewModel
 import com.bumptech.glide.Glide
 
 class MovieDetailsActivity : AppCompatActivity() {

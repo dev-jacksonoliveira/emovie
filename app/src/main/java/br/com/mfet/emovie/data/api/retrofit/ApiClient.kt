@@ -1,6 +1,6 @@
-package br.com.mfet.jmovie.data.api.retrofit
+package br.com.mfet.emovie.data.api.retrofit
 
-import br.com.mfet.jmovie.data.repository.ApiService
+import br.com.mfet.emovie.data.repository.ApiService
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

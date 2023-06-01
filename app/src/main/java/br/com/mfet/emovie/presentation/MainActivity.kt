@@ -1,17 +1,18 @@
-package br.com.mfet.jmovie.presentation
+package br.com.mfet.emovie.presentation
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.mfet.jmovie.databinding.ActivityMainBinding
-import br.com.mfet.jmovie.utils.extensions.Extensions.toast
-import br.com.mfet.jmovie.data.repository.DatabaseService
-import br.com.mfet.jmovie.utils.FirebaseUtils.firebaseAuth
-import br.com.mfet.jmovie.presentation.adapter.MovieViewAdapter
-import br.com.mfet.jmovie.viewmodel.MainActivityViewModel
+import br.com.mfet.emovie.databinding.ActivityMainBinding
+import br.com.mfet.emovie.utils.extensions.Extensions.toast
+import br.com.mfet.emovie.data.database.DatabaseService
+import br.com.mfet.emovie.utils.FirebaseUtils.firebaseAuth
+import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
+import br.com.mfet.emovie.viewmodel.MainActivityViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,10 +22,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var movieAdapterFavorite: MovieViewAdapter
 
     private lateinit var viewModel: MainActivityViewModel
-
-    companion object {
-        const val MOVIE_ID = "br.com.mfet.jmovie.view.activity.MainActivity.MOVIE_ID"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,5 +106,10 @@ class MainActivity : AppCompatActivity() {
            val intent = Intent(this, MovieFavoriteActivity::class.java)
            startActivity(intent)
        }
+    }
+
+    companion object {
+        fun getLaunchIntent(context: Context) = Intent(context, MainActivity::class.java)
+        const val MOVIE_ID = "br.com.mfet.emovie.view.activity.MainActivity.MOVIE_ID"
     }
 }

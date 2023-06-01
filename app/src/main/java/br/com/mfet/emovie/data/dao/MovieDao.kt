@@ -1,7 +1,7 @@
-package br.com.mfet.jmovie.data.dao
+package br.com.mfet.emovie.data.dao
 
 import androidx.room.*
-import br.com.mfet.jmovie.data.model.Movie
+import br.com.mfet.emovie.data.model.Movie
 
 @Dao
 interface MovieDao {

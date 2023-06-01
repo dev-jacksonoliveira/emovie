@@ -1,15 +1,16 @@
-package br.com.mfet.jmovie.data.model
+package br.com.mfet.emovie.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "favorites")
 data class Movie(
     @PrimaryKey
     val id: Int,
     val title: String,
-    val releaseDate: String,
+    @SerializedName("release_date") val releaseDate: String,
     val overview: String,
-    val posterPath: String,
+    @SerializedName("poster_path") val posterPath: String,
     val isFavorite: Boolean = false
 )

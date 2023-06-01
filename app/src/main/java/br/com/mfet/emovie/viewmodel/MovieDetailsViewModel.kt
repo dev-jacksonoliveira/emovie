@@ -1,11 +1,11 @@
-package br.com.mfet.jmovie.viewmodel
+package br.com.mfet.emovie.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.mfet.jmovie.data.model.Movie
-import br.com.mfet.jmovie.data.api.retrofit.ApiClient
+import br.com.mfet.emovie.data.model.Movie
+import br.com.mfet.emovie.data.api.retrofit.ApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call

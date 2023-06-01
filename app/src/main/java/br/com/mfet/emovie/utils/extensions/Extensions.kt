@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.utils.extensions
+package br.com.mfet.emovie.utils.extensions
 
 import android.app.Activity
 import android.widget.Toast

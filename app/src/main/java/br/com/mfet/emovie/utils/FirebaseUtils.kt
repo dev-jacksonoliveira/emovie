@@ -1,4 +1,4 @@
-package br.com.mfet.jmovie.utils
+package br.com.mfet.emovie.utils
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
