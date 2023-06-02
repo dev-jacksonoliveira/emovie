@@ -7,17 +7,22 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import br.com.mfet.emovie.R
 import br.com.mfet.emovie.databinding.ActivityMainBinding
-import br.com.mfet.emovie.utils.extensions.Extensions.toast
 import br.com.mfet.emovie.data.database.DatabaseService
+import br.com.mfet.emovie.data.model.Movie
 import br.com.mfet.emovie.utils.FirebaseUtils.firebaseAuth
 import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
+import br.com.mfet.emovie.presentation.login.SignInActivity
 import br.com.mfet.emovie.viewmodel.MainActivityViewModel
 
-
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     private lateinit var movieAdapterPopular: MovieViewAdapter
+
+    // private var movieAdapterPopular: MovieViewAdapter? = null
     private lateinit var movieAdapterUpComing: MovieViewAdapter
     private lateinit var movieAdapterFavorite: MovieViewAdapter
 
@@ -25,9 +30,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
+        setupListeners()
 
         viewModel = ViewModelProvider(this)
             .get(MainActivityViewModel::class.java)
@@ -36,18 +41,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MovieDetailsActivity::class.java)
             intent.putExtra(MOVIE_ID, it)
             startActivity(intent)
-        }, { movie, isFavorite ->
-            if (isFavorite) {
-                DatabaseService.setMovieFavorite(this, movie)
-                Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
-                    Toast.LENGTH_LONG).show()
-            }
-            else {
-                DatabaseService.deleteMovieFavorite(this, movie)
-                Toast.makeText(this, "Filme removido da sua lista de favoritos!",
-                    Toast.LENGTH_LONG).show()
-            }
-
+        }, { movie, movieFavorite ->
+            setupMovieFavoritesList(movie, movieFavorite)
         })
         binding.rvMovielistpopular.adapter = movieAdapterPopular
 
@@ -55,17 +50,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MovieDetailsActivity::class.java)
             intent.putExtra(MOVIE_ID, it)
             startActivity(intent)
-        }, { movie, isChecked ->
-            if (isChecked) {
-                DatabaseService.setMovieFavorite(this, movie)
-                Toast.makeText(this, "Filme adicionado à sua lista de favoritos!",
-                    Toast.LENGTH_LONG).show()
-            }
-            else {
-                DatabaseService.deleteMovieFavorite(this, movie)
-                Toast.makeText(this, "Filme removido da sua lista de favoritos!",
-                    Toast.LENGTH_LONG).show()
-            }
+        }, { movie, movieFavorite ->
+            setupMovieFavoritesList(movie, movieFavorite)
         })
         binding.rvMovieupcoming.adapter = movieAdapterUpComing
 
@@ -89,27 +75,48 @@ class MainActivity : AppCompatActivity() {
         }, { movie, isChecked ->
             TODO()
         })
+    }
 
-        intentFavorites()
+    private fun setupViews() {
+        TODO()
+    }
 
-        binding.btnSignOut.setOnClickListener {
+    private fun setupListeners() = with(binding) {
+        btnSignOut.setOnClickListener {
             firebaseAuth.signOut()
-            startActivity(Intent(this, SignInActivity::class.java))
-            toast("Conexão encerrada com sucesso")
+            startActivity(SignInActivity.getLaunchIntent(this@MainActivity))
             finish()
         }
 
+        btnFavoritos.setOnClickListener {
+            startActivity(MovieFavoriteActivity.getLaunchIntent(this@MainActivity))
+        }
     }
 
-    fun intentFavorites() {
-       binding.btnFavoritos.setOnClickListener {
-           val intent = Intent(this, MovieFavoriteActivity::class.java)
-           startActivity(intent)
-       }
+    private fun setupMovieFavoritesList(movie: Movie, movieFavorite: Boolean) {
+        if (movieFavorite) {
+            DatabaseService.setMovieFavorite(this, movie)
+            showToastMessage(R.string.movie_added_to_favorites_list)
+        } else {
+            DatabaseService.deleteMovieFavorite(this, movie)
+            showToastMessage(R.string.movie_removed_from_favorites_list)
+        }
+    }
+
+    private fun showToastMessage(message: Int) {
+        Toast.makeText(
+            this,
+            getString(message),
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
+    private fun navigateToMovieDetails() {
+        startActivity(MovieDetailsActivity.getLaunchIntent(this@MainActivity))
     }
 
     companion object {
         fun getLaunchIntent(context: Context) = Intent(context, MainActivity::class.java)
-        const val MOVIE_ID = "br.com.mfet.emovie.view.activity.MainActivity.MOVIE_ID"
+        const val MOVIE_ID = "movie_id_key"
     }
 }

@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.presentation
+package br.com.mfet.emovie.presentation.login
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import br.com.mfet.emovie.databinding.ActivityCreateAccountBinding
+import br.com.mfet.emovie.presentation.MainActivity
 import br.com.mfet.emovie.utils.extensions.Extensions.toast
 import br.com.mfet.emovie.utils.FirebaseUtils.firebaseAuth
 import br.com.mfet.emovie.utils.FirebaseUtils.firebaseUser
@@ -38,7 +39,6 @@ class CreateAccountActivity : AppCompatActivity() {
             signIn()
         }
     }
-    // verifique se há um usuário conectado
 
     override fun onStart() {
         super.onStart()

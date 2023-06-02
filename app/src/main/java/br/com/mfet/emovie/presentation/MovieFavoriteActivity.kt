@@ -1,5 +1,6 @@
 package br.com.mfet.emovie.presentation
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,7 @@ import br.com.mfet.emovie.data.database.DatabaseService
 import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
 
 class MovieFavoriteActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMovieFavoriteBinding
+    private lateinit var binding: ActivityMovieFavoriteBinding
     private lateinit var movieAdapterFavorite: MovieViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,7 @@ class MovieFavoriteActivity : AppCompatActivity() {
 
         movieListFavDbCall()
 
-        movieAdapterFavorite =  MovieViewAdapter({
+        movieAdapterFavorite = MovieViewAdapter({
             val intent = Intent(this, MovieDetailsActivity::class.java)
             intent.putExtra(MainActivity.MOVIE_ID, it)
             startActivity(intent)
@@ -37,7 +38,7 @@ class MovieFavoriteActivity : AppCompatActivity() {
 
         })
         binding.rvMoviefavorite.adapter = movieAdapterFavorite
-        binding.rvMoviefavorite.layoutManager =  GridLayoutManager(this,2)
+        binding.rvMoviefavorite.layoutManager = GridLayoutManager(this, 2)
 
     }
 
@@ -46,5 +47,10 @@ class MovieFavoriteActivity : AppCompatActivity() {
             movieAdapterFavorite.addItems(list)
 
         }
+    }
+
+    companion object {
+        fun getLaunchIntent(context: Context) =
+            Intent(context, MovieFavoriteActivity::class.java)
     }
 }

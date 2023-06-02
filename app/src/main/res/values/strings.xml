@@ -17,8 +17,14 @@
     <string name="sign_in">Entrar</string>
     <string name="sign_out">Sair</string>
 
-<!--    SignIn-->
+    <!-- SignIn -->
     <string name="connected_successfully">Conectado com sucesso</string>
     <string name="connection_failed">A conexão falhou</string>
     <string name="required_field">%s é obrigatório</string>
+
+    <!-- MainActivity -->
+    <string name="movie_added_to_favorites_list">Filme adicionado à lista de favoritos</string>
+    <string name="movie_removed_from_favorites_list">Filme removido da lista de favoritos</string>
+
+
 </resources>

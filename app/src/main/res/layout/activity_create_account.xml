@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:chainUseRtl="true"
     android:background="@color/blacktwo"
-    tools:context=".presentation.CreateAccountActivity"
+    tools:context=".presentation.login.CreateAccountActivity"
     tools:ignore="Autofill">
 
 

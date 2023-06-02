@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blacktwo"
-    tools:context=".presentation.SignInActivity"
+    tools:context=".presentation.login.SignInActivity"
     tools:ignore="Autofill, LabelFor">
 
     <ImageView

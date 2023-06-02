@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.presentation
+package br.com.mfet.emovie.presentation.login
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import br.com.mfet.emovie.utils.extensions.Extensions.toast
 import br.com.mfet.emovie.utils.FirebaseUtils.firebaseAuth
 import br.com.mfet.emovie.R
 import br.com.mfet.emovie.databinding.ActivitySignInBinding
+import br.com.mfet.emovie.presentation.MainActivity
 
 class SignInActivity : AppCompatActivity() {
     private val binding: ActivitySignInBinding by lazy {

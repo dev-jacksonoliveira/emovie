@@ -13,12 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Emovie">
 
-        <activity
-            android:name="br.com.mfet.emovie.presentation.MovieFavoriteActivity"
-            android:exported="true" />
-        <activity android:name="br.com.mfet.emovie.presentation.SignInActivity"/>
+        <activity android:name="br.com.mfet.emovie.presentation.MovieFavoriteActivity" />
+        <activity android:name="br.com.mfet.emovie.presentation.login.SignInActivity" />
         <activity android:name="br.com.mfet.emovie.presentation.MovieDetailsActivity" />
-        <activity android:name="br.com.mfet.emovie.presentation.MainActivity"
+        <activity
+            android:name="br.com.mfet.emovie.presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="br.com.mfet.emovie.presentation.CreateAccountActivity" />
+        <activity android:name="br.com.mfet.emovie.presentation.login.CreateAccountActivity" />
     </application>
 
 </manifest>
