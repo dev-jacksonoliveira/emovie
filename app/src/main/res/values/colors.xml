@@ -11,4 +11,92 @@
     <color name="yellow">#ECD172</color>
     <color name="blacktwo">#161617</color>
 
+    <!--# Azul # -->
+    <color name="azul_100">#061EFF</color>
+
+    <!-- # Neutras # -->
+    <!-- Black 100% -->
+    <color name="black_100">#000000</color>
+    <!-- Black 85% -->
+    <color name="black_85">#1F1F1F</color>
+    <!-- Black 75% -->
+    <color name="black_75">#404040</color>
+    <!-- Black 70% -->
+    <color name="black_70">#5F5F5F</color>
+    <!-- Black 65% -->
+    <color name="black_65">#808080</color>
+    <!-- Black 60% -->
+    <color name="black_60">#999999</color>
+    <!-- Black 45% -->
+    <color name="black_45">#B3B3B3</color>
+    <!-- Black 30% -->
+    <color name="black_30">#C8C8C8</color>
+    <!-- Black 15% -->
+    <color name="black_15">#E0E0E0</color>
+    <!-- Black 05% -->
+    <color name="black_05">#F7F7F7</color>
+    <!-- Off-white -->
+    <color name="off_white">#EBF1EC</color>
+    <!-- Off-white 8-->
+    <color name="off_white_8">#14EBF1EC</color>
+    <!-- alpha 50% white -->
+    <color name="white_50">#80FFFFFF</color>
+    <!-- alpha 10% white -->
+    <color name="white_90">#E6FFFFFF</color>
+
+    <!-- # Secundárias # -->
+    <!-- Violet 100% -->
+    <color name="violet_100">#48316D</color>
+    <!-- Violet -->
+    <color name="violet_primary">#8645FF</color>
+    <!-- Violet 60% -->
+    <color name="violet_60">#B68FFF</color>
+    <!-- Violet 30% -->
+    <color name="violet_30">#DBC7FF</color>
+    <!-- Pink 100% -->
+    <color name="pink_100">#890099</color>
+    <!-- Pink -->
+    <color name="pink_primary">#F864F5</color>
+    <!-- Pink 60% -->
+    <color name="pink_60">#FBA2F9</color>
+    <!-- Pink 30% -->
+    <color name="pink_30">#FDD1FC</color>
+
+    <!-- # Status # -->
+    <!-- Yellow 100% -->
+    <color name="yellow_100">#94621F</color>
+    <!-- Yellow 80% -->
+    <color name="yellow_80">#DBBD49</color>
+    <!-- Yellow Primário -->
+    <color name="yellow_primary">#E7E033</color>
+    <!-- Yellow 60% -->
+    <color name="yellow_60">#F1EC85</color>
+    <!-- Yellow 30% -->
+    <color name="yellow_30">#F8F6C2</color>
+
+    <!-- Green 100% -->
+    <color name="green_100">#034D2E</color>
+    <!-- Green 80% -->
+    <color name="green_80">#01653B</color>
+    <!-- Green Primário -->
+    <color name="green_primary">#2CCC6E</color>
+    <!-- Green 60% -->
+    <color name="green_60">#80E0A8</color>
+    <!-- Green 30% -->
+    <color name="green_30">#C0F0D3</color>
+
+    <!-- Red 100% -->
+    <color name="red_100">#842310</color>
+    <!-- Red 80% -->
+    <color name="red_80">#A6341D</color>
+    <!-- Red Primário -->
+    <color name="red_primary">#FF5A40</color>
+    <!-- Red 60% -->
+    <color name="red_60">#FF9C8C</color>
+    <!-- Red 30% -->
+    <color name="red_30">#FFCDC6</color>
+
+    <!-- aux pressed color -->
+    <color name="black_aux">#DFE5E0</color>
+
 </resources>
