@@ -17,6 +17,12 @@
     <string name="sign_in">Entrar</string>
     <string name="sign_out">Sair</string>
 
+    <!-- Accessibility -->
+    <string name="button_accessibility">%s Botão</string>
+
+    <!-- NavigationView -->
+    <string name="button_back">Voltar</string>
+
     <!-- SignIn -->
     <string name="connected_successfully">Conectado com sucesso</string>
     <string name="connection_failed">A conexão falhou</string>

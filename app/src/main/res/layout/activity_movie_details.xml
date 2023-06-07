@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/transparent"
-    >
+    android:background="@android:color/transparent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="horizontal"
-            android:background="@color/blacktwo"
-
             tools:context=".MainActivity">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_poster"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:scaleType="fitXY"
-                android:focusable="true"
                 android:background="@android:color/transparent"
+                android:focusable="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_launcher_foreground"
-
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
@@ -39,12 +34,12 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:text="@string/title"
                 android:padding="5dp"
+                android:text="@string/title"
                 android:textColor="@color/gray_light"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_poster"/>
+                app:layout_constraintTop_toBottomOf="@id/iv_poster" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/release_date"
@@ -52,11 +47,11 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:textColor="@color/white"
-                android:text="@string/release_date"
                 android:padding="6dp"
+                android:text="@string/release_date"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title"/>
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/info"
@@ -64,12 +59,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
+                android:padding="6dp"
                 android:text="@string/info"
                 android:textColor="@color/white"
-                android:padding="6dp"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/release_date"/>
+                app:layout_constraintTop_toBottomOf="@id/release_date" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -77,26 +72,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:padding="6dp"
                 android:text="@string/overview"
                 android:textColor="@color/white"
-                android:padding="6dp"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/info"/>
+                app:layout_constraintTop_toBottomOf="@id/info" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddFavorites"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:backgroundTint="@color/yellow"
                 android:text="@string/btn_add"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/yellow"
-                app:layout_constraintStart_toStartOf="@id/tv_overview"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="@id/tv_overview" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
