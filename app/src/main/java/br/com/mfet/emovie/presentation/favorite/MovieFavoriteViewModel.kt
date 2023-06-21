@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.viewmodel
+package br.com.mfet.emovie.presentation.favorite
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

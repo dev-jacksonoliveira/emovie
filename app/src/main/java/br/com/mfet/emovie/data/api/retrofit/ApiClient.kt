@@ -1,6 +1,6 @@
 package br.com.mfet.emovie.data.api.retrofit
 
-import br.com.mfet.emovie.data.repository.ApiService
+import br.com.mfet.emovie.data.repository.MovieApi
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -24,6 +24,6 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiService: ApiService = retrofit.create(ApiService::class.java)
+    val movieApi: MovieApi = retrofit.create(MovieApi::class.java)
 
 }

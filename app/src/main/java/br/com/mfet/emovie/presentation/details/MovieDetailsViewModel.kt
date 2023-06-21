@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.viewmodel
+package br.com.mfet.emovie.presentation.details
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -22,7 +22,7 @@ class MovieDetailsViewModel : ViewModel() {
     fun getApiMovieCall(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
 
-            val call = ApiClient.apiService.getMovieById(id)
+            val call = ApiClient.movieApi.getMovieById(id)
             call.enqueue(object : Callback<Movie> {
                 override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
 

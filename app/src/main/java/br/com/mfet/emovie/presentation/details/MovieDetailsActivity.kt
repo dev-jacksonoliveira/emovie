@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.presentation
+package br.com.mfet.emovie.presentation.details
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,7 @@ import br.com.mfet.emovie.data.model.Movie
 import br.com.mfet.emovie.data.database.DatabaseService
 import br.com.mfet.emovie.presentation.MainActivity.Companion.MOVIE_ID
 import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
-import br.com.mfet.emovie.viewmodel.MovieDetailsViewModel
+import br.com.mfet.emovie.presentation.favorite.MovieFavoriteActivity
 import com.bumptech.glide.Glide
 
 class MovieDetailsActivity : AppCompatActivity() {

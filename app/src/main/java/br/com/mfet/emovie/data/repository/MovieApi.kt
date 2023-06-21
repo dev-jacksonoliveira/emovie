@@ -13,14 +13,14 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ApiService {
+interface MovieApi {
 
     @GET("popular")
-    fun listPopular(
+    suspend fun fetchPopularMoviesList(
         @Query(API_KEY_QUERY) apiKey: String = API_KEY,
         @Query(LANGUAGE_QUERY) idiom: String = DEFAULT_LANGUAGE,
         @Query(PAGE_QUERY) page: Int = 1
-    ): Call<PageList>
+    ): List<Movie>
 
     @GET("upcoming")
     fun listUpcoming(

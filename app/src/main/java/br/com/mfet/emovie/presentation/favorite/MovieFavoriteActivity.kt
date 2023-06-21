@@ -1,4 +1,4 @@
-package br.com.mfet.emovie.presentation
+package br.com.mfet.emovie.presentation.favorite
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.mfet.emovie.databinding.ActivityMovieFavoriteBinding
 import br.com.mfet.emovie.data.database.DatabaseService
+import br.com.mfet.emovie.presentation.MainActivity
+import br.com.mfet.emovie.presentation.details.MovieDetailsActivity
 import br.com.mfet.emovie.presentation.adapter.MovieViewAdapter
 
 class MovieFavoriteActivity : AppCompatActivity() {
