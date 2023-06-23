@@ -20,6 +20,9 @@
     <!-- Accessibility -->
     <string name="button_accessibility">%s Botão</string>
 
+    <!-- Generic Loading Button -->
+    <string name="loading">carregando</string>
+
     <!-- NavigationView -->
     <string name="button_back">Voltar</string>
 

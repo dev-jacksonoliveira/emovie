@@ -35,22 +35,24 @@ class MovieDetailsActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        binding.btnAddFavorites.setOnClickListener {
-            startActivity(MovieFavoriteActivity.getLaunchIntent(this@MovieDetailsActivity))
-            movieDetailsAdapter = MovieViewAdapter({
+        binding.btnAddFavorites.clickAction = { goToFavorites() }
+    }
 
-            }, { movie, isFavorite ->
-                if (isFavorite) {
-                    DatabaseService.setMovieFavorite(this, movie)
-                    Toast.makeText(
-                        this, "Filme adicionado à sua lista de favoritos!",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+    private fun goToFavorites() {
+        startActivity(MovieFavoriteActivity.getLaunchIntent(this@MovieDetailsActivity))
+        movieDetailsAdapter = MovieViewAdapter({
 
-            })
+        }, { movie, isFavorite ->
+            if (isFavorite) {
+                DatabaseService.setMovieFavorite(this, movie)
+                Toast.makeText(
+                    this, "Filme adicionado à sua lista de favoritos!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
 
-        }
+        })
+
     }
 
     private fun initViewModel(id: Int) {

@@ -25,4 +25,17 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="GenericLoadingButton">
+        <attr name="button_text" format="string" />
+        <attr name="button_background_drawable" format="reference" />
+        <attr name="button_animation_loading" format="reference" />
+        <attr name="button_text_color" format="reference|color" />
+        <attr name="button_text_size" format="reference|dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ShimmerLayout">
+        <attr name="baseColor" format="color" />
+        <attr name="highlightColor" format="color" />
+    </declare-styleable>
+
 </resources>

@@ -79,16 +79,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/info" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <br.com.mfet.emovie.components.GenericLoadingButton
                 android:id="@+id/btnAddFavorites"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/yellow"
-                android:text="@string/btn_add"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                app:button_animation_loading="@raw/white_loading_button_animation"
+                app:button_background_drawable="@drawable/generic_loading_button_blue_100_background"
+                app:button_text="@string/btn_add"
+                app:button_text_color="@color/black_100"
+                android:textSize="@dimen/font_sm"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_overview" />
 
