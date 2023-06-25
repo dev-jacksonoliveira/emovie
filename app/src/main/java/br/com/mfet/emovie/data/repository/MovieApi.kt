@@ -2,12 +2,6 @@ package br.com.mfet.emovie.data.repository
 
 import br.com.mfet.emovie.data.PageList
 import br.com.mfet.emovie.data.model.Movie
-import br.com.mfet.emovie.data.api.ApiConst.API_KEY
-import br.com.mfet.emovie.data.api.ApiConst.API_KEY_QUERY
-import br.com.mfet.emovie.data.api.ApiConst.DEFAULT_LANGUAGE
-import br.com.mfet.emovie.data.api.ApiConst.LANGUAGE_QUERY
-import br.com.mfet.emovie.data.api.ApiConst.PAGE_QUERY
-import br.com.mfet.emovie.data.api.ApiConst.PATH_MOVIE_ID
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -36,5 +30,13 @@ interface MovieApi {
         @Query(LANGUAGE_QUERY) idiom: String = DEFAULT_LANGUAGE
     ): Call<Movie>
 
+    companion object {
+        private const val API_KEY = "a3ab39cfa47a650d8da5aeacb8bd67b8"
+        private const val PATH_MOVIE_ID = "id"
+        private const val API_KEY_QUERY = "api_key"
+        private const val LANGUAGE_QUERY = "language"
+        private const val DEFAULT_LANGUAGE = "pt-BR"
+        private const val PAGE_QUERY = "page"
+    }
 }
 

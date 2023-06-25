@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
         setupListeners()
         setupObservers()
 
-
-
 //        movieAdapterPopular = MovieViewAdapter({
 //            val intent = Intent(this, MovieDetailsActivity::class.java)
 //            intent.putExtra(MOVIE_ID, it)
@@ -80,10 +78,6 @@ class MainActivity : AppCompatActivity() {
 //        }, { movie, isChecked ->
 //            TODO()
 //        })
-    }
-
-    private fun setupViews() {
-        TODO()
     }
 
     private fun setupObservers() {
